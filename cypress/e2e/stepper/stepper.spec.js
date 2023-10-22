@@ -1,5 +1,5 @@
-describe("Stepper page", ()=>{
-  beforeEach(()=>{
+describe("Stepper page", () => {
+  beforeEach(() => {
     cy.visit('pages/layout/stepper')
   })
 
@@ -7,7 +7,7 @@ describe("Stepper page", ()=>{
     cy.get('nb-stepper[orientation="vertical"] h3').as("stepperTitle")
     cy.get('nb-stepper[orientation="vertical"] button').last().as("nextButton")
 
-    cy.get("@stepperTitle").should('be.visible').and('have.text', "Step content #1").then(($el)=>{
+    cy.get("@stepperTitle").should('be.visible').and('have.text', "Step content #1").then(($el) => {
       expect($el.text()).to.be.eq("Step content #1")
     })
     cy.get("@nextButton").click()
@@ -24,8 +24,8 @@ describe("Stepper page", ()=>{
   });
 
   it('Vertical stepper should display correct title on each step (XPATH)', () => {
-   const titleSelector = '//nb-stepper[@orientation="vertical"]//h3'
-   const nextButtonSelector = '//nb-stepper[@orientation="vertical"]//button[2]'
+    const titleSelector = '//nb-stepper[@orientation="vertical"]//h3'
+    const nextButtonSelector = '//nb-stepper[@orientation="vertical"]//button[2]'
 
     cy.xpath(titleSelector).should('have.text', "Step content #1")
     cy.xpath(nextButtonSelector).click()
